@@ -1,0 +1,18 @@
+<h1> Task Create</h1>
+<h1> Task Create</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title"  required><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description">{{ task.description|default_if_none:'' }}</textarea><br>
+
+    <label for="due_date">Due Date:</label>
+    <input type="datetime-local" id="due_date" name="due_date"><br>
+
+    <label for="is_completed">Completed:</label>
+    <input type="checkbox" id="is_completed" name="is_completed" {% if task.is_completed %}checked{% endif %}><br>
+
+    <button type="submit"> Task Create</button>
+</form>
